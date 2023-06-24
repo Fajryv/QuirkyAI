@@ -1,0 +1,32 @@
+import random
+
+class QuirkyAI:
+    def __init__(self):
+        self.name = "QuirkyAI"
+        self.greetings = ["Hello!", "Hi there!", "Greetings!"]
+        self.responses = {
+            "how are you?": ["I'm feeling whimsical today!", "I'm as happy as a digital clam!"],
+            "tell me a joke": ["Why don't scientists trust atoms? Because they make up everything!", "Why did the computer go to the doctor? Because it had a virus!"],
+            "what's the meaning of life?": ["42, of course!", "The meaning of life is to enjoy the journey!"],
+            "goodbye": ["Farewell, human!", "Until we meet again!"]
+        }
+
+    def greet(self):
+        return random.choice(self.greetings)
+
+    def generate_response(self, user_input):
+        if user_input.lower() in self.responses:
+            return random.choice(self.responses[user_input.lower()])
+        else:
+            return "Hmm... I'm not sure how to respond to that. Ask me something else!"
+
+quirky_ai = QuirkyAI()
+
+print(quirky_ai.greet())
+while True:
+    user_input = input("> ")
+    if user_input.lower() == "goodbye":
+        print(quirky_ai.generate_response(user_input.lower()))
+        break
+    else:
+        print(quirky_ai.generate_response(user_input.lower()))
